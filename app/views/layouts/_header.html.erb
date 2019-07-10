@@ -5,7 +5,7 @@
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
         <% if user_signed_in? %>
-          <li class="nav-link">Users</li>
+          <li class="nav-link"><%= link_to "Users", users_path %></li>
           <li class="nav-link"><%= link_to "Log out", destroy_user_session_path, method: "delete" %></li>
         <% else %>
           <li class="nav-link"><%= link_to "Sign In", new_user_session_path %></li>
