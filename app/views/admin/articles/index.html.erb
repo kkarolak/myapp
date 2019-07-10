@@ -1,0 +1,22 @@
+<h1 align="center">Manage Articles</h1>
+<%= link_to 'Add Article', new_admin_article_path %>
+<table class = "table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th colspan="2"> </th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @article.each do |article| %>
+    <tr>
+      <td> <%= article.title %></td>
+      <td> <%= article.description %></td>
+      <td> <%= link_to 'Show', admin_article_path(article)%></td>
+      <td> <%= link_to 'Edit', edit_admin_article_path(article) %></td>
+      <td> <%= link_to 'Destroy', admin_article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+    </tr>
+    <% end %>
+    </tbody>
+  </table>
