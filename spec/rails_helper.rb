@@ -5,6 +5,7 @@ require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'shoulda/matchers'
+require 'database_cleaner'
 require "pundit/rspec"
 # require "paperclip/matchers"
 
@@ -31,10 +32,10 @@ RSpec.configure do |config|
   #config.include Features, :type => :feature
   config.include Features::SessionHelpers, type: :feature
 
- # config.include Warden::Test::Helpers
-  #config.before :suite do
-  #  Warden.test_mode!
- # end
+  config.include Warden::Test::Helpers
+  config.before :suite do
+    Warden.test_mode!
+  end
 
   # config.include Paperclip::Shoulda::Matchers
 

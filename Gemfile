@@ -20,6 +20,7 @@ group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'database_cleaner'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'faker'

@@ -53,6 +53,7 @@
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.12.2, ruby-2.5.1-p57) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.5, ruby-2.5.1-p57) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, ruby-2.5.1-p57) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="database_cleaner (v1.7.0, ruby-2.5.1-p57) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="devise (v4.6.2, ruby-2.5.1-p57) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, ruby-2.5.1-p57) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, ruby-2.5.1-p57) [gem]" level="application" />
