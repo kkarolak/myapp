@@ -150,6 +150,8 @@ GEM
       method_source (~> 0.9.0)
     public_suffix (3.1.1)
     puma (3.9.1)
+    pundit (2.0.1)
+      activesupport (>= 3.0.0)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -285,6 +287,7 @@ DEPENDENCIES
   minitest-reporters (= 1.1.14)
   pg (= 0.20.0)
   puma (= 3.9.1)
+  pundit
   rails (= 5.1.6)
   rails-controller-testing (= 1.0.2)
   rspec-rails
