@@ -20,7 +20,9 @@ group :development, :test do
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'capybara'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -35,7 +37,6 @@ group :test do
   gem 'minitest',                 '5.10.3'
   gem 'minitest-reporters',       '1.1.14'
   gem 'guard',                    '2.13.0'
-  gem 'faker'
   gem 'launchy'
   gem 'guard-rspec'
   gem 'capybara'
