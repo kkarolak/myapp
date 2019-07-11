@@ -3,8 +3,8 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!
   after_action :verify_authorized
 
+
   def new
-    authorize User
     if current_user
        @article = Article.new
     else
@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
   end
   def create
    #render plain: current_user.id
-    authorize User
     @article = Article.new(article_params)
     @article.user_id = current_user.id
     if @article.save
@@ -29,11 +28,9 @@ class ArticlesController < ApplicationController
     @comments = @article.comments
   end
   def edit
-    authorize User
 
   end
   def update
-    authorize User
     if @article.update(article_params)
       flash[:success] = "Article was updated"
       redirect_to @article
@@ -43,11 +40,10 @@ class ArticlesController < ApplicationController
     end
   end
   def index
-    authorize User
     @article = Article.all
+    authorize User
   end
   def destroy
-    authorize User
     @article.destroy
     flash[:success] = "Article was deleted"
     redirect_to articles_path

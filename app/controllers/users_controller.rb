@@ -15,18 +15,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize @user
-    @user.destroy
-    redirect_to users_path, :notice => "User deleted"
+
   end
 
   def update
-    authorize @user
-    if @user.update_attributes(secure_params)
-      redirect_to users_path, :success => "User updated"
-    else
-      redirect_to users_path, :alert => "Unable to update user"
-    end
 
   end
 
@@ -36,7 +28,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:role)
     end
 
-    def set_article
+    def set_user
       @user = User.find(params[:id])
     end
 end

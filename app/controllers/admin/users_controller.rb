@@ -1,21 +1,10 @@
 class Admin::UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!
+  before_action :authorize_user
   after_action :verify_authorized
-  def new
-    @user = User.new
-  end
-  def create
-    @user = User.new(user_params)
-    if @user.save
-      flash[:success] = "Account created!"
-      redirect_to admin_users_path(@user)
-    else
-      render 'new'
-    end
-  end
+  before_action :set_user, only: [:edit, :update, :show, :destroy]
+
   def update
-    authorize @user
     if @user.update(user_params)
       flash[:success] = "Your account was updated successfully"
       redirect_to admin_users_path
@@ -27,20 +16,20 @@ class Admin::UsersController < ApplicationController
   def edit
   end
   def show
-    authorize @user
   end
   def destroy
-    authorize @user
     @user.destroy
     flash[:success] = "User was deleted"
     redirect_to admin_users_path
   end
+  def index
+    @user = User.all
+  end
   def set_user
     @user = User.find(params[:id])
   end
-  def index
-    @user = User.all
-    authorize User
+  def authorize_user
+    authorize [:admin, User]
   end
   private
   def user_params

@@ -1,8 +1,8 @@
 class Admin::CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :authorize_user
   after_action :verify_authorized
   def create
-    authorize User
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
     @comment.user_id = current_user.id
@@ -18,7 +18,6 @@ class Admin::CommentsController < ApplicationController
     end
   end
   def update
-    authorize User
     @article = Article.find(params[:id])
     @comment = Comment.find(params[:article_id])
     if @comment.status == "published"
@@ -34,11 +33,13 @@ class Admin::CommentsController < ApplicationController
   def edit
   end
   def destroy
-    authorize User
     @comment = Comment.find(params[:article_id])
     @comment.destroy
     flash[:success] = "Comment was deleted"
     redirect_to request.referrer
+  end
+  def authorize_user
+    authorize [:admin, User]
   end
   private
   def comment_params

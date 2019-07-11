@@ -1,5 +1,9 @@
 class Admin::ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user
+  after_action :verify_authorized
+
   def new
     @article = Article.new
   end
@@ -40,6 +44,9 @@ class Admin::ArticlesController < ApplicationController
   end
   def set_article
     @article = Article.find(params[:id])
+  end
+  def authorize_user
+    authorize [:admin, User]
   end
   private
   def article_params
