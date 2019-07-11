@@ -11,6 +11,7 @@ FactoryGirl.define do
   end
   factory :article do
     title 'Test article'
+
     description 'Test description'
     user_id 1
   end

@@ -2,10 +2,10 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <% if user_signed_in? && current_user.role == "admin" %>
-      <%= link_to " ADMIN PANEL", admin_dashboard_index_path, id: "logo" %>
+      <%= link_to " ADMIN PANEL", admin_root_path, id: "logo" %>
       <nav>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", admin_dashboard_index_path %></li>
+          <li><%= link_to "Home", admin_root_path %></li>
           <li><%= link_to "Manage Articles", admin_articles_path %></li>
           <li><%= link_to "Manage Users", admin_users_path %></li>
           <% if user_signed_in?  %>
