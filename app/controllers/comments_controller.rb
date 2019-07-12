@@ -8,24 +8,8 @@ class CommentsController < ApplicationController
    if @comment.save
      flash[:success] = "Udało się dodać komentarz! Poczekaj na zaakceptowanie go przez administratora"
      redirect_to @article
+   end
 
-  else
-   redirect_to root_path
-     end
-  end
-  def update
-    @comment = Comment.find(params[:article_id])
-    if @comment.status == "published"
-      @comment.update(status: "unpublished")
-      flash[:success] = "Comment was published"
-      redirect_to request.referrer
-    else
-      @comment.update(status: "published")
-      flash[:success] = "Comment was unpublished"
-      redirect_to request.referrer
-    end
-  end
-  def edit
   end
   def set_article
     @article = Article.find(params[:article_id])

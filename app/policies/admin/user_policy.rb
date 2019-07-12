@@ -31,4 +31,5 @@ class Admin::UserPolicy
   def create?
     @current_user.admin?
   end
+
 end

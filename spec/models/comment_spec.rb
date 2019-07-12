@@ -6,7 +6,7 @@ RSpec.describe Comment, type: :model do
       should validate_presence_of(:comment)
     end
     it "validates length of comment" do
-      should validate_length_of(:comment).is_at_least(3)
+      should validate_length_of(:comment).is_at_least(1)
       should validate_length_of(:comment).is_at_most(300)
     end
   end

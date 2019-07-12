@@ -13,6 +13,9 @@ class UserPolicy
   def show?
     @current_user.user? || @current_user.admin?
   end
+  def root?
+    @current_user.admin?
+  end
 =begin
   def update?
     @current_user.user?
