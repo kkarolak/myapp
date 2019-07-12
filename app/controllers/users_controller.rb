@@ -14,14 +14,6 @@ class UsersController < ApplicationController
     authorize @user
   end
 
-  def destroy
-
-  end
-
-  def update
-
-  end
-
   private
 
     def secure_params
