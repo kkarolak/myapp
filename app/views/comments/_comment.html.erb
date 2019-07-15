@@ -1,16 +1,18 @@
 
 
-<% @comments.each do |article|%>
+<% @comments.each do |comment|%>
+  <% if comment.status == "published"  %>
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
       <div class="well well-lg">
         <div class="article-title">
-          <%= link_to article.user.username, user_path(article.user_id) %>
+          <%= link_to comment.user.username, user_path(comment.user_id) %>
         </div>
         <div class="article-body">
-          <%= truncate(article.comment, length: 100) %>
+          <%= truncate(comment.comment, length: 100) %>
         </div>
       </div>
     </div>
   </div>
+    <% end %>
 <% end %>

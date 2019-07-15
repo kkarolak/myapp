@@ -22,12 +22,12 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find(params[:article_id])
     if @comment.status == "published"
       @comment.update(status: "unpublished")
-      flash[:success] = "Comment was published"
+      flash[:success] = "Comment was unpublished"
       redirect_to request.referrer
     else
       @comment.update(status: "published")
-      flash[:success] = "Comment was unpublished"
-      redirect_to request.referrer
+      flash[:success] = "Comment was published"
+      redirect_to request.referrer || admin_root_path
     end
   end
   def edit
@@ -36,14 +36,14 @@ class Admin::CommentsController < ApplicationController
     @comment = Comment.find(params[:article_id])
     @comment.destroy
     flash[:success] = "Comment was deleted"
-    redirect_to request.referrer
+    redirect_to request.referrer || admin_root_path
   end
   def authorize_user
     authorize [:admin, User]
   end
   private
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:comments)
   end
 
 end
