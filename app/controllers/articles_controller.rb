@@ -11,8 +11,9 @@ class ArticlesController < ApplicationController
   end
   def show
     authorize Article
-    @comment = Comment.new
-    @comments = @article.comments
+    @comments = @article.comments.all
+    @comment = @article.comments.new
+
   end
   def index
     authorize Article
