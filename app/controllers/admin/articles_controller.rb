@@ -9,8 +9,7 @@ class Admin::ArticlesController < ApplicationController
   end
   def create
     #render plain: current_user.id
-    @article = Article.new(article_params)
-    @article.user_id = current_user.id
+    @article = current_user.articles.new(article_params)
     if @article.save
       flash[:success] = "Article was successfully created!"
       redirect_to admin_articles_path
