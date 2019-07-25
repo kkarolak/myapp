@@ -1,6 +1,9 @@
 class CommentsController < ApplicationController
   before_action :set_article, only: [:create, :update]
+  before_action :authenticate_user!
+  after_action :verify_authorized
   def create
+   authorize Comment
    @comment = @article.comments.create(comment_params)
    @comment.user_id = current_user.id
    @comment.status = "unpublished"

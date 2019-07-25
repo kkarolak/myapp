@@ -39,11 +39,11 @@ class Admin::CommentsController < ApplicationController
     redirect_to request.referrer || admin_root_path
   end
   def authorize_user
-    authorize [:admin, User]
+    authorize [:admin, Comment]
   end
   private
   def comment_params
-    params.require(:comment).permit(:comments)
+    params.require(:comment).permit(:comment)
   end
 
 end

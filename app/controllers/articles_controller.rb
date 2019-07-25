@@ -10,12 +10,12 @@ class ArticlesController < ApplicationController
     end
   end
   def show
-    authorize User
+    authorize Article
     @comment = Comment.new
     @comments = @article.comments
   end
   def index
-    authorize User
+    authorize Article
     @article = Article.all
   end
   def set_article

@@ -45,7 +45,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
   def authorize_user
-    authorize [:admin, User]
+    authorize [:admin, Article]
   end
   private
   def article_params
